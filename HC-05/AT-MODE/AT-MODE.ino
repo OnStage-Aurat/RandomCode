@@ -10,13 +10,16 @@
 
 void setup() {
   Serial.begin(38400);
+  Serial1.println("Enter AT commands:");
   Serial1.begin(38400);
 }
 void loop() {
-  if(Serial1.available()){
-    Serial1.write(Serial1.read());
+  if (Serial1.available()) {
+    char c = Serial1.read();
+    Serial.print(c);
   }
   if (Serial.available()) {
-    Serial1.print(Serial.read());
+    char c = Serial.read();
+    Serial1.print(c);
   }
 }
